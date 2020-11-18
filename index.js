@@ -6,16 +6,15 @@ const pullMedium = require("./article");
 const User = require("./models/User");
 const app = express();
 
-// const url = 'https://api.telegram.org/bot';
 const apiToken = '1472016467:AAH5F_4vfjAbknSxLLSN2HK-QwhB6vN54Ww';
 const bot = new Telegraf(apiToken);
 
 bot.start((ctx) => ctx.reply('Welcome'))
 
-cron.schedule("31 20 * * *", function () {
+cron.schedule("30 19 * * *", function () {
     pullMedium()
       .then(function (result) {
-        articleLink = `[TODAY'S ARTICLE ](${result.rss.channel[0].item[0].link[0]})`;
+        articleLink = `[Your daily top picks!](${result.rss.channel[0].item[0].link[0]})`;
         (async () => {
           const users = await User.findAll({ attributes: ["chatId"] });
           users.forEach((user) => 
@@ -64,11 +63,6 @@ app.get('/', (req,res) => res.send('INDEX'));
 
 // User routes
 app.use('/users', require('./routes/users'));
-
-app.post('/', (req, res) => {
-     console.log(req.body);
-     res.send(req.body);
-});
 
 const PORT = process.env.PORT || 5000; 
 
