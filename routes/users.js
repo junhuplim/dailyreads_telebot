@@ -1,17 +1,15 @@
 const express = require('express');
 const router = express.Router();
-const db = require('../db/database');
-const User = require('../models/User');
+const db = require('../models/index');
 
 router.get('/', (req,res) =>
-    User.findAll(
+    db.Users.findAll(
         {
-            attributes: ['chatid']
+            attributes: ['chatId']
         }
     )
         .then(users => {
-            console.log(users)
-            res.sendStatus(200);
+            res.send(users);
         })
         .catch(err => console.log(err)));
 
