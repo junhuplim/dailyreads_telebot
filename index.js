@@ -1,4 +1,4 @@
-// require('dotenv').config();
+require('dotenv').config();
 
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -8,9 +8,8 @@ const pullMedium = require("./article");
 const app = express();
 const db = require('./models/index.js');
 
-const apiToken = "1472016467:AAH5F_4vfjAbknSxLLSN2HK-QwhB6vN54Ww"
+const apiToken = process.env.TELEGRAM_TOKEN;
 const bot = new Telegraf(apiToken);
-
 
 cron.schedule("30 19 * * *", function () {
     pullMedium()
