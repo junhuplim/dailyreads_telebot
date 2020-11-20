@@ -10,7 +10,7 @@ const db = require('./models/index.js');
 const apiToken = process.env.TELEGRAM_TOKEN;
 const bot = new Telegraf(apiToken);
 
-cron.schedule("* * * * *", function () {
+cron.schedule("* 20 * * *", function () {
     pullMedium()
       .then(function (result) {
         articleLink = `[Your daily top picks!](${result.rss.channel[0].item[0].link[0]})`;
