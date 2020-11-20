@@ -7,7 +7,8 @@ const { Telegraf } = require("telegraf");
 const pullMedium = require("./article");
 const app = express();
 const db = require('./models/index.js');
-
+console.log('src');
+console.log(process.env.TELEGRAM_TOKEN);
 const apiToken = process.env.TELEGRAM_TOKEN;
 const bot = new Telegraf(apiToken);
 
