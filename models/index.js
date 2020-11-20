@@ -8,10 +8,13 @@ const env = process.env.NODE_ENV || 'development';
 const config = require('../config/config.js')[env];
 const db = {};
 
+console.log('gsgfg');
 let sequelize;
 if (config.use_env_variable) {
+  console.log('prod');
   sequelize = new Sequelize(process.env[config.use_env_variable], config);
 } else {
+  console.log('dev');
   sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
 
