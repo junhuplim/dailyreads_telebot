@@ -14,10 +14,11 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "username": "junhuplim",
+    "password": "junhup",
+    "database": "dailyreads",
+    "host": "localhost",
+    "dialect": "postgres",
+    "use_env_variable": "DATABASE_URL"
   }
 }

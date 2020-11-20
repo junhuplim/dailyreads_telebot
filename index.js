@@ -63,9 +63,9 @@ app.use('/users', require('./routes/users'));
 
 
 // Endpoints
-app.get('/', (req,res) => res.send('INDEX'));
+app.get('/', (req,res) => res.send('Homepage'));
 
-const PORT = process.env.PORT || 5000; 
+const PORT = process.env.PORT || 3000; 
 
 // Listening
 app.listen(PORT, () => {
