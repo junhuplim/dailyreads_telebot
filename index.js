@@ -1,5 +1,4 @@
 require('dotenv').config();
-
 const express = require('express');
 const bodyParser = require('body-parser');
 const cron = require("node-cron");
@@ -7,8 +6,7 @@ const { Telegraf } = require("telegraf");
 const pullMedium = require("./article");
 const app = express();
 const db = require('./models/index.js');
-console.log('src');
-console.log(process.env.TELEGRAM_TOKEN);
+
 const apiToken = process.env.TELEGRAM_TOKEN;
 const bot = new Telegraf(apiToken);
 
@@ -49,20 +47,19 @@ bot.hears("/unsubscribe", async (ctx) => {
 });
 
 bot.start((ctx) => ctx.reply('Welcome'))
-// bot.help((ctx) => ctx.reply('Send me a sticker'))
-// bot.on('sticker', (ctx) => ctx.reply('👍'))
+bot.help((ctx) => ctx.reply('Send me a sticker'))
+bot.on('sticker', (ctx) => ctx.reply('👍'))
 bot.hears('hi', (ctx) => ctx.reply('Hello Friend!'))
 bot.hears("id", (ctx) => {
   return ctx.reply(ctx.chat.id);
   });
 bot.launch()
 
-
 // Configurations
 app.use(bodyParser.json());
+
 // User routes
 app.use('/users', require('./routes/users'));
-
 
 // Endpoints
 app.get('/', (req,res) => res.send('Homepage'));
