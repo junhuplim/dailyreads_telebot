@@ -14,11 +14,11 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "junhuplim",
-    "password": "junhup",
-    "database": "dailyreads",
-    "host": "localhost",
+    "username": "xctskvlytsulki",
+    "password": "010616a8c58308b58987dc33a39e99c3a62eec9cf767dda083dceaaa2102f3d2",
+    "database": "d88iqrddh7uk4d",
+    "host": "5432",
     "dialect": "postgres",
-    "use_env_variable": "DATABASE_URL"
+    "use_env_variable": "postgres://xctskvlytsulki:010616a8c58308b58987dc33a39e99c3a62eec9cf767dda083dceaaa2102f3d2@ec2-3-220-222-72.compute-1.amazonaws.com:5432/d88iqrddh7uk4d"
   }
 }
